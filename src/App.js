@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Bookshelf from './Bookshelf';
 
 class App extends Component {
 
@@ -9,24 +10,26 @@ class App extends Component {
         "title": "The Linux Command Line",
         "authors": [
           "William E. Shotts, Jr."
-        ], "id": "nggnmAEACAAJ",
+        ], 
+        "id": "nggnmAEACAAJ",
         "shelf": "currentlyReading",
         "imageLinks": {
           "smallThumbnail": "http://books.google.com/books/content?id=nggnmAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
           "thumbnail": "http://books.google.com/books/content?id=nggnmAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
-        },
+        }
       },
       {
         "title": "Learning Web Development with React and Bootstrap",
         "authors": [
           "Harmeet Singh",
           "Mehul Bhatt"
-        ], "id": "sJf1vQAACAAJ",
+        ], 
+        "id": "sJf1vQAACAAJ",
         "shelf": "currentlyReading",
         "imageLinks": {
           "smallThumbnail": "http://books.google.com/books/content?id=sJf1vQAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
           "thumbnail": "http://books.google.com/books/content?id=sJf1vQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
-        },
+        }
       },
       {
         "title": "The Cuckoo's Calling",
@@ -49,6 +52,11 @@ class App extends Component {
         <header className="list-books-title">
           <h1>my-reads</h1>
         </header>
+        <div className='list-books-content'>
+          <Bookshelf className='bookshelf' 
+            books={this.state.books} 
+          />
+        </div>
       </div>
     );
   }
