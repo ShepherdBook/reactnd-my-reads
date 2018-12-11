@@ -1,21 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 import MoveBook from './MoveBook';
 
-class Book extends Component {
-  render() {
+function Book(props) {
     return (
-      <li className='book' key={this.props.id}>
-        {/* <img className='book-cover' alt='book cover'/> */}
-        <p className='book-title'>{this.props.title}</p>
-        <div className='book-authors'>
-          {this.props.authors.map((author) => (
-            <p>{author}</p>
-          ))}
+      <li key={props.id}>
+        <div className='book'>
+          <div className='book-top'>
+            <div className='book-cover'></div>
+            <MoveBook />
+          </div>
+          <div className='book-title'>{props.title}</div>
+          <div className='book-authors'>
+            {props.authors.map((author) => (
+              <div>{author}</div>
+            ))}
+          </div>
         </div>
-        <MoveBook />
       </li>
     )
-  }
 }
 
 export default Book
