@@ -1,23 +1,30 @@
-import React from 'react'
+import React, { Component } from 'react'
 import MoveBook from './MoveBook';
 
-function Book(props) {
+class Book extends Component {
+  render() {
     return (
-      <li key={props.id}>
-        <div className='book'>
-          <div className='book-top'>
-            <div className='book-cover'></div>
-            <MoveBook />
+      <div className='book'>
+        <div className='book-top'>
+          <div 
+            className='book-cover'
+            style={{
+              width: 128, 
+              height: 193,
+              backgroundImage: `url(${this.props.coverUrl})`
+            }}>
           </div>
-          <div className='book-title'>{props.title}</div>
-          <div className='book-authors'>
-            {props.authors.map((author) => (
-              <div>{author}</div>
-            ))}
-          </div>
+          <MoveBook shelf={this.props.shelf}/>
         </div>
-      </li>
+        <div className='book-title'>{this.props.title}</div>
+        <div className='book-authors'>
+          {this.props.authors.map((author) => (
+            <div key={author}>{author}</div>
+          ))}
+        </div>
+      </div>
     )
+  }
 }
 
 export default Book
