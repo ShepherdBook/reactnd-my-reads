@@ -65,6 +65,10 @@ class Bookshelf extends Component {
 
     return (
       <div>
+        <header className="list-books-title">
+          <h1>my-reads</h1>
+        </header>
+        
         <BookList title={"Currently Reading"} books={currentlyReadingBooks} />
         <BookList title={"Want to Read"} books={wantToReadBooks} />
         <BookList title={"Read"} books={readBooks} />

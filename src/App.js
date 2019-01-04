@@ -2,15 +2,13 @@ import React, { Component } from "react";
 import "./App.css";
 import Bookshelf from "./Bookshelf";
 import Search from "./Search";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
       <div className="body">
-        <header className="list-books-title">
-          <h1>my-reads</h1>
-        </header>
+        
 
         <Route
           exact
@@ -23,6 +21,10 @@ class App extends Component {
         />
 
         <Route exact path="/search" component={Search} />
+
+        <Link to="/search" className="open-search">
+          <button>Open Search</button>
+        </Link>
       </div>
     );
   }
