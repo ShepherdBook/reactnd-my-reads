@@ -23,7 +23,7 @@ class App extends Component {
         title: "Learning Web Development with React and Bootstrap",
         authors: ["Harmeet Singh", "Mehul Bhatt"],
         id: "sJf1vQAACAAJ",
-        shelf: "currentlyReading",
+        shelf: "none",
         imageLinks: {
           smallThumbnail:
             "http://books.google.com/books/content?id=sJf1vQAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
