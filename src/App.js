@@ -30,7 +30,7 @@ class App extends Component {
           path="/"
           render={() => (
             <div className="list-books-content">
-              <Bookshelf className="bookshelf" books={this.state.books} />
+              <Bookshelf className="bookshelf" books={this.state.books} handleChange={this.moveBook} />
             </div>
           )}
         />
@@ -38,7 +38,7 @@ class App extends Component {
         <Route
           exact
           path="/search"
-          render={() => <Search books={this.state.books} />}
+          component={Search}
         />
       </div>
     );

@@ -3,7 +3,7 @@ import Book from "./Book";
 
 class BookList extends Component {
   render() {
-    const { title, books } = this.props;
+    const { title, books, handleChange } = this.props;
 
     return (
       <div>
@@ -11,9 +11,9 @@ class BookList extends Component {
           <h2>{title}</h2>
         </header>
         <ul className="books-grid">
-          {books.map(book => (
+          {books.length > 0 && books.map(book => (
             <li key={book.id}>
-              <Book book={book} />
+              <Book book={book} handleChange={handleChange} />
             </li>
           ))}
         </ul>

@@ -5,27 +5,19 @@ import * as BooksApi from "./BooksAPI";
 
 class Search extends Component {
   state = {
-    query: ""
+    results: []
   };
 
-  search = query => {};
-
   updateQuery = query => {
-    this.setState(() => ({
-      query: query.trim()
-    }));
+    BooksApi.search(query).then(results => {
+      this.setState(() => ({
+        results: typeof results !== "undefined" ? results : []
+      }));
+    });
   };
 
   render() {
-    const { books } = this.props;
-    const { query } = this.state;
-
-    const booksToShow =
-      query === ""
-        ? books
-        : books.filter(book =>
-            book.title.toLocaleLowerCase().includes(query.toLocaleLowerCase())
-          );
+    const { handleChange } = this.props;
 
     return (
       <div>
@@ -35,13 +27,16 @@ class Search extends Component {
               name="query"
               placeholder="Search"
               type="text"
-              value={query}
               onChange={event => this.updateQuery(event.target.value)}
             />
           </form>
         </div>
         <div className="search-books-results">
-          <BookList title="Results" books={booksToShow} />
+          <BookList
+            title="Results"
+            books={this.state.results}
+            handleChange={handleChange}
+          />
           <Link to="/" className="close-search" />
         </div>
       </div>

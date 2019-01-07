@@ -4,10 +4,8 @@ import { Link } from "react-router-dom";
 
 class Bookshelf extends Component {
   render() {
-    const { books } = this.props;
-    const currentlyReadingBooks = books.filter(
-      book => book.shelf === "currentlyReading"
-    );
+    const { books, handleChange } = this.props;
+    const currentlyReadingBooks = books.filter(book => book.shelf === "currentlyReading");
     const wantToReadBooks = books.filter(book => book.shelf === "wantToRead");
     const readBooks = books.filter(book => book.shelf === "read");
 
@@ -17,9 +15,9 @@ class Bookshelf extends Component {
           <h1>my-reads</h1>
         </header>
 
-        <BookList title={"Currently Reading"} books={currentlyReadingBooks} />
-        <BookList title={"Want to Read"} books={wantToReadBooks} />
-        <BookList title={"Read"} books={readBooks} />
+        <BookList title={"Currently Reading"} books={currentlyReadingBooks} handleChange={handleChange} />
+        <BookList title={"Want to Read"} books={wantToReadBooks} handleChange={handleChange} />
+        <BookList title={"Read"} books={readBooks} handleChange={handleChange} />
 
         <Link to="/search" className="open-search">
           <button>Open Search</button>
