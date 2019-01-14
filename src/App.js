@@ -4,23 +4,24 @@ import Bookshelf from "./Bookshelf";
 import Search from "./Search";
 import { Route } from "react-router-dom";
 
-import * as BooksApi from './BooksAPI'
+import * as BooksApi from "./BooksAPI";
 
 class App extends Component {
   state = {
-    books: []
+    booksOnShelf: []
   };
 
   componentDidMount() {
     BooksApi.getAll().then(books => {
-      this.setState(() => ({books}))
-    })
+      this.setState(() => ({
+        booksOnShelf: books
+      }));
+    });
   }
 
   moveBook = (book, newShelfName) => {
-    BooksApi.update(book, newShelfName)
-      .then()
-  }
+    BooksApi.update(book, newShelfName).then();
+  };
 
   render() {
     return (
@@ -30,7 +31,11 @@ class App extends Component {
           path="/"
           render={() => (
             <div className="list-books-content">
-              <Bookshelf className="bookshelf" books={this.state.books} handleChange={this.moveBook} />
+              <Bookshelf
+                className="bookshelf"
+                books={this.state.booksOnShelf}
+                handleChange={this.moveBook}
+              />
             </div>
           )}
         />
@@ -38,7 +43,12 @@ class App extends Component {
         <Route
           exact
           path="/search"
-          component={Search}
+          render={() => (
+            <Search
+              books={this.state.booksOnShelf}
+              handleChange={this.moveBook}
+            />
+          )}
         />
       </div>
     );
