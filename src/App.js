@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Bookshelf from "./Bookshelf";
 import Search from "./Search";
-import { Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import * as BooksApi from "./BooksAPI";
 
@@ -30,31 +30,33 @@ class App extends Component {
   render() {
     return (
       <div className="body">
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <div className="list-books-content">
-                <Bookshelf
-                  className="bookshelf"
+        <BrowserRouter>
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => (
+                <div className="list-books-content">
+                  <Bookshelf
+                    className="bookshelf"
+                    books={this.state.booksOnShelf}
+                    handleChange={this.moveBook}
+                  />
+                </div>
+              )}
+            />
+            <Route
+              exact
+              path="/search"
+              render={() => (
+                <Search
                   books={this.state.booksOnShelf}
                   handleChange={this.moveBook}
                 />
-              </div>
-            )}
-          />
-          <Route
-            exact
-            path="/search"
-            render={() => (
-              <Search
-                books={this.state.booksOnShelf}
-                handleChange={this.moveBook}
-              />
-            )}
-          />
-        </Switch>
+              )}
+            />
+          </Switch>
+        </BrowserRouter>
       </div>
     );
   }

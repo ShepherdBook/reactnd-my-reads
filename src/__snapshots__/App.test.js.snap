@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders as expected 1`] = `
+<div
+  className="body"
+>
+  <div
+    className="list-books-content"
+  >
+    <div>
+      <header
+        className="list-books-title"
+      >
+        <h1>
+          my-reads
+        </h1>
+      </header>
+      <div>
+        <header
+          className="bookshelf-title"
+        >
+          <h2>
+            Currently Reading
+          </h2>
+        </header>
+        <ul
+          className="books-grid"
+        />
+      </div>
+      <div>
+        <header
+          className="bookshelf-title"
+        >
+          <h2>
+            Want To Read
+          </h2>
+        </header>
+        <ul
+          className="books-grid"
+        />
+      </div>
+      <div>
+        <header
+          className="bookshelf-title"
+        >
+          <h2>
+            Read
+          </h2>
+        </header>
+        <ul
+          className="books-grid"
+        />
+      </div>
+      <a
+        className="open-search"
+        href="/search"
+        onClick={[Function]}
+      >
+        <button>
+          Open Search
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+`;
