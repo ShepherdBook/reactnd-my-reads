@@ -1,3 +1,7 @@
+# MyReads
+
+This is my version of the MyReads project of the Udacity React Nanodegree.  It allows a user to track their lists of books they have read, want to read, etc.  By connecting to the Books Api, they can search for new books to add to their bookshelf.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
