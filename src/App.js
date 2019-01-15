@@ -20,7 +20,13 @@ class App extends Component {
   }
 
   moveBook = (book, newShelfName) => {
-    BooksApi.update(book, newShelfName).then();
+    BooksApi.update(book, newShelfName).then(() => {
+      BooksApi.getAll().then(books => {
+        this.setState(() => ({
+          booksOnShelf: books
+        }));
+      });
+    });
   };
 
   render() {
