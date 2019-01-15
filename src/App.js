@@ -12,10 +12,8 @@ class App extends Component {
   };
 
   componentDidMount() {
-    BooksApi.getAll().then(books => {
-      this.setState(() => ({
-        booksOnShelf: books
-      }));
+    BooksApi.getAll().then(booksOnShelf => {
+      this.setState({ booksOnShelf });
     });
   }
 
