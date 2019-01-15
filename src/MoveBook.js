@@ -16,7 +16,7 @@ class MoveBook extends Component {
     return (
       <div className="book-shelf-changer">
         <form>
-          <select value={this.state.book.shelf} onChange={this.handleChange}>
+          <select value={this.state.book.shelf || 'none'} onChange={this.handleChange}>
             <option value="move" disabled>
               Move to...
             </option>
