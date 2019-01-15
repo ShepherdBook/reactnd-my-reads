@@ -5,8 +5,7 @@ import * as BooksApi from "./BooksAPI";
 
 class Search extends Component {
   state = {
-    results: [],
-    currentBooks: []
+    results: []
   };
 
   updateQuery = query => {
@@ -20,20 +19,18 @@ class Search extends Component {
   render() {
     const { books, handleChange } = this.props;
     const booksWithShelf = [];
-    // Need to combine books and results so that results are shown on correct shelf
 
-    //foreach book in results
-    //if book is in books
-    //book is on a shelf
-    for (var bookResult of this.state.results) {
-      const id = bookResult.id;
-      var bookOnShelf = books.find(book => book.id === id);
+    if (this.state.results && this.state.results.length > 0) {
+      for (var bookResult of this.state.results) {
+        const id = bookResult.id;
+        var bookOnShelf = books.find(book => book.id === id);
 
-      if (bookOnShelf != null) {
-        bookResult.shelf = bookOnShelf.shelf;
+        if (bookOnShelf != null) {
+          bookResult.shelf = bookOnShelf.shelf;
+        }
+
+        booksWithShelf.push(bookResult);
       }
-
-      booksWithShelf.push(bookResult);
     }
 
     return (
